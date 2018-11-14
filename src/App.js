@@ -7,6 +7,9 @@ import './App.css';
 import List from './components/List';
 import Navbar from './components/Navbar';
 import MyAvatar from './components/MyAvatar';
+import InputText from './components/Form/InputText';
+
+import {withValidator} from './components/Form/Validator'
 
 const jsonData = [
   {id: 'a',value: 'Item 1'}, 
@@ -40,7 +43,8 @@ class App extends Component {
     }, 5000);
   }
   render() {
-    console.log(this.props)
+    const InputWithValidator = withValidator(InputText);
+    
     return (
       <div className="App">
         <div className="list">
@@ -48,6 +52,10 @@ class App extends Component {
           <List data={this.state.list} />
           <MyAvatar image={this.state.avatar} />
           <MyAvatar key={this.state.avatar} image={this.state.avatar} />
+          <div>
+            <InputText/>
+            <InputWithValidator />
+          </div>
         </div>
       </div>
     );
