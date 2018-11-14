@@ -12,7 +12,6 @@ class InputText extends Component {
         this.onValidate = this.onValidate.bind(this)
     }
     handleInput(event) {
-        // console.log(event)
         this.setState({
             value: event.target.value
         })

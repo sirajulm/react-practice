@@ -5,11 +5,9 @@ class Validator extends Component {
     // constructor(props) {
     //     super(props);
     // }
-    componentDidMount() {
-        console.log("Validator");
-    }
+    // componentDidMount() {
+    // }
     componentWillReceiveProps(nextProps) {
-        console.log(this.props, nextProps)
         if(this.props.value !== nextProps.value) {
             if(this.props.type === 'text') {
                 this.props.onValidate(textPattern.test(nextProps.value))

@@ -13,7 +13,6 @@ function fetchData(id) {
 function* apiSaga ({id}) {
     try {
         const response = yield call(fetchData, id);
-        console.log(response)
         const image = response.data.url;
 
         yield put({type: types.API_CALL_SUCCESS, image})
