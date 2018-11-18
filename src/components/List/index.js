@@ -1,12 +1,17 @@
 import React from 'react';
-export default (props) => {
+import styled from 'styled-components';
+const StyledList = styled.ul`
+    list-style: none;
+    `;
 
-    return <ul>
+    export default (props) => {
+
+    return <StyledList>
     {
 
         props.data.map((item, index) => {
             return <li key={item.id}>{item.value}</li>
         })
     }
-    </ul>
+    </StyledList>
 }

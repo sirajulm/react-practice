@@ -7,3 +7,8 @@ export const loginUser = ({username, password}, history, redirect) => ({
     history,
     redirect
 });
+export const logoutUser = (history, redirect) => ({
+    type: types.LOGOUT_USER,
+    history,
+    redirect
+});

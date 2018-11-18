@@ -11,6 +11,9 @@ export function loginReducer (state = {...initialState.auth, token}, action) {
             return { ...state, processing: false, token: action.token, error: null};
         case types.LOGIN_FAILURE:
             return { ...state, processing: false, error: action.error}
+        case types.LOGOUT_USER:
+            localStorage.removeItem('token');
+            return { ...state, processing: false, token: null, error: null};
         default:
             return state;
     }
