@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { callApi } from './actions/apiActions';
 import './App.css';
 
 import List from './components/List';
 import Navbar from './components/Navbar';
+import Main from './components/Main';
 import MyAvatar from './components/MyAvatar';
-import InputText from './components/Form/InputText';
+import {Input} from './components/Form/InputText';
 
 import {withValidator} from './components/Form/Validator'
 
@@ -43,27 +45,23 @@ class App extends Component {
     }, 5000);
   }
   render() {
-    const InputWithValidator = withValidator(InputText);
     
     return (
       <div className="App">
         <div className="list">
           <Navbar avatar={this.state.avatar}/>
-          <List data={this.state.list} />
+          <Main/>
+          {/* <List data={this.state.list} />
           <MyAvatar image={this.state.avatar} />
           <MyAvatar key={this.state.avatar} image={this.state.avatar} />
           <div>
-            <InputText/>
-            <InputWithValidator />
-          </div>
+          </div> */}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({api}) => ({ ...api});
+// const mapStateToProps = ({api}) => ({ ...api});
 
-// const mapDispatchToProps = (dispatch) => {}
-
-export default connect(mapStateToProps)(App);
+export default withRouter(connect()(App));

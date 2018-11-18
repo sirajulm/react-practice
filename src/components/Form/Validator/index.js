@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Validator from './Validator';
 
-export const withValidator = (Component) => {
+export const withValidator = (Comp) => {
     return class extends Component {
         render() {
-            return <Component render={ (type, value, onValidate) => (
+            return <Comp {...this.props} render={ (type, value, onValidate) => (
                 <Validator 
                     type={type} 
                     value={value} 
@@ -16,3 +16,18 @@ export const withValidator = (Component) => {
         }
     }
 }
+
+// export const withValidator = (Comp) => {
+//     return class extends Component {
+//         render() {
+//             return <Comp render={ (type, value, onValidate) => (
+//                 <Validator 
+//                     type={type} 
+//                     value={value} 
+//                     onValidate={onValidate} 
+//                     />
+//                 )} 
+//             />
+//         }
+//     }
+// }

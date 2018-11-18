@@ -1,7 +1,7 @@
 import initialState from './initialState';
 import * as types from '../actions/actionTypes';
 
-export function apiReducer (state = initialState, action) {
+export function apiReducer (state = initialState.api, action) {
     switch(action.type) {
         case types.API_CALL_REQUEST: 
             return { ...state, fetching: true, error: null};
